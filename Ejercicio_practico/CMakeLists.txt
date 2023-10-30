@@ -21,7 +21,7 @@
 cmake_minimum_required(VERSION 3.1)  # Mandatory
 
 # set the project name 
-project(simulador_automatas_main                # Mandatory
+project(gramatica_main                # Mandatory
     VERSION 1.0
     DESCRIPTION "A simple CMake project for the Change-Case application"
     LANGUAGES CXX)
@@ -40,8 +40,8 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 # tell cmake where to look for *.h files
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
-# Adds an executable target called "simulador_automatas_main" to be built from the source files listed in the command invocation.
-add_executable(simulador_automatas_main
+# Adds an executable target called "gramatica_main" to be built from the source files listed in the command invocation.
+add_executable(gramatica_main
     src/tools.h
     src/tools.cc
     src/simbolo.h
@@ -50,14 +50,12 @@ add_executable(simulador_automatas_main
     src/cadena.cc
     src/alfabeto.h
     src/alfabeto.cc
-    src/estado.h
-    src/estado.cc
-    src/automata.h
-    src/automata.cc
-    src/simulador_automatas_main.cc)
+    src/gramatica.h
+    src/gramatica.cc
+    src/gramatica_main.cc)
 
 # Add expected compiler features to a target.
-target_compile_features(simulador_automatas_main PRIVATE cxx_std_17)
+target_compile_features(gramatica_main PRIVATE cxx_std_17)
 
 # Add compile options to a target.
-target_compile_options(simulador_automatas_main PRIVATE -Wall -Wextra -Wpedantic -Weffc++)
+target_compile_options(gramatica_main PRIVATE -Wall -Wextra -Wpedantic -Weffc++)

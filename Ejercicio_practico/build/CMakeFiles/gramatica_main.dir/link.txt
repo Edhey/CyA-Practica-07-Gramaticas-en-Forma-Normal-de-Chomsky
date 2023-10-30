@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/gramatica_main.dir/src/tools.cc.o CMakeFiles/gramatica_main.dir/src/simbolo.cc.o CMakeFiles/gramatica_main.dir/src/cadena.cc.o CMakeFiles/gramatica_main.dir/src/alfabeto.cc.o CMakeFiles/gramatica_main.dir/src/gramatica.cc.o CMakeFiles/gramatica_main.dir/src/gramatica_main.cc.o  -o gramatica_main 

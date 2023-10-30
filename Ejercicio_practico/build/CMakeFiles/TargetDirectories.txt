@@ -1,0 +1,3 @@
+/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/CMakeFiles/rebuild_cache.dir
+/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/CMakeFiles/edit_cache.dir
+/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/CMakeFiles/gramatica_main.dir
