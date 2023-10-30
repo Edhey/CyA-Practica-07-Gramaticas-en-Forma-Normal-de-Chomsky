@@ -13,3 +13,25 @@ Ca -> a
 Cb -> b
 S -> CbA
 S -> CaB
+
+Forma normal de Chomsky: 
+2
+a
+b
+5
+S
+A
+B
+Ca
+Cb
+10
+S CbA
+S CaB
+A CbAA
+A CaS
+A a
+B CaBB
+B CbS
+B b
+Ca a
+Cb b

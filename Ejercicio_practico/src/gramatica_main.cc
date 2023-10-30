@@ -32,10 +32,17 @@ int main(int argc, char* argv[]) {
     return 1;
   }
   std::string fichero_gramatica{argv[1]};
+  std::string fichero_salida_gramatica{argv[2]};
   Gramatica gramatica(fichero_gramatica);
   std::cout << "Gramatica: " << std::endl << gramatica;
   Gramatica formal_normal_de_chomsky = gramatica.FormalNormalDeChomsky();
-  std::cout << "Forma normal de Chomsky: " << std::endl
-            << formal_normal_de_chomsky;
+  std::ofstream fichero_de_salida{fichero_salida_gramatica};
+  if (!fichero_de_salida) {
+    std::cerr
+        << "Oh no, ocurrió un error en output.txt ¡No se pudo abrir el archivo!"
+        << std::endl;
+    std::exit(EXIT_FAILURE);
+  }
+  fichero_de_salida << formal_normal_de_chomsky;
   return 0;
 }

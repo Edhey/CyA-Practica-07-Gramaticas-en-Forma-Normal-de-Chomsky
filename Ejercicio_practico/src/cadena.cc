@@ -46,7 +46,7 @@ Cadena::Cadena(std::string cadena) {
  */
 std::vector<Simbolo>& Cadena::getCadena() const {
   std::vector<Simbolo>& cadena_aux = const_cast<std::vector<Simbolo>&>(cadena_);
-  return cadena_aux; 
+  return cadena_aux;
 }
 
 /**
@@ -69,10 +69,10 @@ void Cadena::ConcatenarSimbolo(const Simbolo& simbolo) {
   if (cadena_.size() == 1 && cadena_[0] == ampersand) {
     cadena_.clear();
   }
-  for (int i{0}; i < simbolo.getSimbolo().size(); ++i) {
-    if (simbolo.getSimbolo()[i] != '&')
-      cadena_.push_back(simbolo.getSimbolo()[i]);
-  }
+  std::string simbolo_str = simbolo.getSimbolo();  // Obtén una copia de la cadena
+  simbolo_str.erase(std::remove(simbolo_str.begin(), simbolo_str.end(), '&'),
+            simbolo_str.end());  // Elimina todos los '&'
+  cadena_.push_back(Simbolo(simbolo_str));
 }
 
 /**

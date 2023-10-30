@@ -197,32 +197,44 @@ Gramatica Gramatica::FormalNormalDeChomsky() {
       }
     }
   }
-  int iterador = 1;
-  for (auto& produccion : gramatica_fnc.producciones_) {
-    if (produccion.second.getCadena().size() >= 3) {
-      for (int i{0}; i < (produccion.second.getCadena().size() - 2); ++i) {
-        char iterador_char = 'D';
-        std::string simbolo = iterador_char + std::to_string(i + iterador);
+  int iterador = 0;
+  for (auto it = gramatica_fnc.producciones_.begin();
+       it != gramatica_fnc.producciones_.end();) {
+    if (it->second.getCadena().size() >= 3) {
+      for (int i{0}; i < (it->second.getCadena().size() - 2); ++i) {
+        char iterador_char = 'D' + iterador;
+        std::string simbolo = iterador_char + std::to_string(i + 1);
         Simbolo simbolo_aux = Simbolo(simbolo);
-        std::cout << "Simbolo aux: " << simbolo_aux << std::endl;
+        Simbolo simbolo_aux_anterior =
+            Simbolo(("D" + iterador) + std::to_string(i));
+        // out << "Simbolo aux: " << simbolo_aux << std::endl;
         if (!gramatica_fnc.simbolos_no_terminales_.ComprobarSimbolo(
                 simbolo_aux)) {
           gramatica_fnc.simbolos_no_terminales_.InsertarSimbolo(simbolo_aux);
         }
         Cadena cadena_aux;
-        if (i == (produccion.second.getCadena().size() - 2)) {
-          cadena_aux.ConcatenarSimbolo(produccion.second.getCadena()[i - 1] +
-                                       produccion.second.getCadena()[i]);
+        cadena_aux.ConcatenarSimbolo(it->second.getCadena()[i]);
+        cadena_aux.ConcatenarSimbolo(simbolo);
+        if (i == 0) {
+          gramatica_fnc.producciones_.insert(
+              std::pair<Simbolo, Cadena>(it->first.getSimbolo(), cadena_aux));
+        } else {
+          gramatica_fnc.producciones_.insert(
+              std::pair<Simbolo, Cadena>(simbolo_aux_anterior, cadena_aux));
+        }
+        if (i == (it->second.getCadena().size() - 3)) {
+          cadena_aux.Clear();
+          cadena_aux.ConcatenarSimbolo(it->second.getCadena()[i + 1]);
+          cadena_aux.ConcatenarSimbolo(it->second.getCadena()[i + 2]);
           gramatica_fnc.producciones_.insert(
               std::pair<Simbolo, Cadena>(simbolo_aux, cadena_aux));
+          it = gramatica_fnc.producciones_.erase(it);
         }
-        cadena_aux.ConcatenarSimbolo(produccion.second.getCadena()[i] +
-                                     simbolo);
-        // gramatica_fnc.producciones_.insert(
-        //     std::pair<Simbolo, Cadena>(simbolo_aux, cadena_aux));
       }
       // produccion.second.getCadena().clear();
       iterador++;
+    } else {
+      ++it;
     }
   }
   return gramatica_fnc;
@@ -236,18 +248,41 @@ Gramatica Gramatica::FormalNormalDeChomsky() {
  * @return Referencia al flujo de salida.
  */
 std::ostream& operator<<(std::ostream& out, const Gramatica& gramatica) {
-  out << "Símbolos terminales: " << gramatica.simbolos_terminales_ << std::endl;
-  out << "Símbolos no terminales: " << gramatica.simbolos_no_terminales_
-      << std::endl;
-  out << "Símbolo de arranque: " << gramatica.simbolo_de_arranque_ << std::endl;
-  out << "Producciones: " << std::endl;
-  for (auto it = gramatica.producciones_.begin();
-       it != gramatica.producciones_.end(); ++it) {
-    out << it->first << " -> ";
-    for (auto& simbolo : it->second.getCadena()) {
+  // out << "Símbolos terminales: " << gramatica.simbolos_terminales_ <<
+  // std::endl;
+  out << gramatica.simbolos_terminales_.getAlfabeto().size() << std::endl;
+  for (auto& simbolo : gramatica.simbolos_terminales_.getAlfabeto()) {
+    out << simbolo << std::endl;
+  }
+  // out << "Símbolos no terminales: " << gramatica.simbolos_no_terminales_
+  // << std::endl;
+  out << gramatica.simbolos_no_terminales_.getAlfabeto().size() << std::endl;
+  out << gramatica.simbolo_de_arranque_ << std::endl;
+  for (auto& simbolo : gramatica.simbolos_no_terminales_.getAlfabeto()) {
+    if (simbolo != gramatica.simbolo_de_arranque_)
+      out << simbolo << std::endl;
+  }
+  // out << "Símbolo de arranque: " << gramatica.simbolo_de_arranque_ <<
+  // std::endl; out << "Producciones: " << std::endl;
+  out << gramatica.producciones_.size() << std::endl;
+  auto range =
+      gramatica.producciones_.equal_range(gramatica.simbolo_de_arranque_);
+  for (auto i = range.first; i != range.second; ++i) {
+    out << i->first << " ";
+    for (auto& simbolo : i->second.getCadena()) {
       out << simbolo;
     }
     out << std::endl;
+  }
+  for (auto it = gramatica.producciones_.begin();
+       it != gramatica.producciones_.end(); ++it) {
+    if (it->first != gramatica.simbolo_de_arranque_) {
+      out << it->first << " ";
+      for (auto& simbolo : it->second.getCadena()) {
+        out << simbolo;
+      }
+      out << std::endl;
+    }
   }
   return out;
 }
