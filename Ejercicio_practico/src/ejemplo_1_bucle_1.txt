@@ -1,0 +1,15 @@
+Forma normal de Chomsky: 
+Símbolos terminales: {a, b}
+Símbolos no terminales: {A, B, Ca, Cb, S}
+Símbolo de arranque: S
+Producciones: 
+A -> CbAA
+A -> CaS
+A -> a
+B -> CaBB
+B -> CbS
+B -> b
+Ca -> a
+Cb -> b
+S -> CbA
+S -> CaB

@@ -52,6 +52,10 @@ Gramatica::Gramatica(std::string nombre_fichero_gra) {
       std::cerr << "Error. ¡El símbolo no terminal " << simbolo
                 << " ya está definido como terminal!" << std::endl;
       std::exit(EXIT_FAILURE);
+    } else if (simbolo == Simbolo("&")) {
+      std::cerr << "Error. ¡La cadena vacía " << simbolo
+                << " no puede ser no terminal!" << std::endl;
+      std::exit(EXIT_FAILURE);
     }
     simbolos_no_terminales_.InsertarSimbolo(simbolo);
     if (i == 0)
@@ -83,7 +87,7 @@ Gramatica::Gramatica(std::string nombre_fichero_gra) {
     // producciones_[no_terminal].push_back(Simbolo(produccion_str));
     int iterador = 0;
     std::string produccion_str_aux = produccion_str;
-    std::vector<Simbolo> produccion_aux;
+    Cadena produccion_aux;
     // Se comprueban que todos los símbolos de la producción sean válidos.
     while (iterador < produccion_str.size()) {
       while (!simbolos_terminales_.ComprobarSimbolo(produccion_str_aux) &&
@@ -92,7 +96,7 @@ Gramatica::Gramatica(std::string nombre_fichero_gra) {
         produccion_str_aux.pop_back();
       }
       if (!produccion_str_aux.empty()) {
-        produccion_aux.push_back(Simbolo(produccion_str_aux));
+        produccion_aux.ConcatenarSimbolo(Simbolo(produccion_str_aux));
         iterador += produccion_str_aux.size();
         produccion_str_aux =
             produccion_str.substr(iterador, produccion_str.size() - 1);
@@ -104,8 +108,8 @@ Gramatica::Gramatica(std::string nombre_fichero_gra) {
       }
     }
     producciones_.insert(
-        std::pair<Simbolo, std::vector<Simbolo>>(no_terminal, produccion_aux));
-    produccion_aux.clear();
+        std::pair<Simbolo, Cadena>(no_terminal, produccion_aux));
+    produccion_aux.Clear();
   }
   //   std::string produccion_str;
   //   iss_datos >> produccion_str;
@@ -134,6 +138,97 @@ Gramatica::Gramatica(std::string nombre_fichero_gra) {
 }
 
 /**
+ * @brief Método de la clase Gramatica que comprueba si existen producciones
+ * vacías.
+ * @return Devuelve true si existen producciones vacías, false en caso
+ * contrario.
+ */
+bool Gramatica::ExistenProduccionesVacias() {
+  for (auto& produccion : producciones_) {
+    if (produccion.first != simbolo_de_arranque_ &&
+        produccion.second == Cadena("&"))
+      return true;
+  }
+  return false;
+}
+
+/**
+ * @brief Método de la clase Gramatica que comprueba si existen producciones
+ * unitarias.
+ * @return Devuelve true si existen producciones unitarias, false en caso
+ * contrario.
+ */
+bool Gramatica::ExistenProduccionesUnitarias() {
+  for (auto& produccion : producciones_) {
+    if (produccion.second.getCadena().size() == 1 &&
+        simbolos_no_terminales_.ComprobarSimbolo(
+            produccion.second.getCadena()[0]))
+      return true;
+  }
+  return false;
+}
+
+Gramatica Gramatica::FormalNormalDeChomsky() {
+  if (this->ExistenProduccionesVacias()) {
+    std::cerr << "Error. ¡No se pudo realizar la conversión a FNC!\nLa "
+                 "gramática contiene producciones vacías"
+              << std::endl;
+    std::exit(EXIT_FAILURE);
+  } else if (this->ExistenProduccionesUnitarias()) {
+    std::cerr << "Error. ¡No se pudo realizar la conversión a FNC!\nLa "
+                 "gramática contiene producciones unitarias"
+              << std::endl;
+    std::exit(EXIT_FAILURE);
+  }
+  Gramatica gramatica_fnc = *this;
+  for (auto& produccion : gramatica_fnc.producciones_) {
+    if (produccion.second.getCadena().size() >= 2) {
+      for (auto& simbolo : produccion.second.getCadena()) {
+        if (simbolos_terminales_.ComprobarSimbolo(simbolo)) {
+          Simbolo simbolo_aux = Simbolo("C" + simbolo.getSimbolo());
+          if (!gramatica_fnc.simbolos_no_terminales_.ComprobarSimbolo(
+                  simbolo_aux)) {
+            gramatica_fnc.simbolos_no_terminales_.InsertarSimbolo(simbolo_aux);
+            gramatica_fnc.producciones_.insert(
+                std::pair<Simbolo, Cadena>(simbolo_aux, Cadena(simbolo)));
+          }
+          simbolo = simbolo_aux;
+        }
+      }
+    }
+  }
+  int iterador = 1;
+  for (auto& produccion : gramatica_fnc.producciones_) {
+    if (produccion.second.getCadena().size() >= 3) {
+      for (int i{0}; i < (produccion.second.getCadena().size() - 2); ++i) {
+        char iterador_char = 'D';
+        std::string simbolo = iterador_char + std::to_string(i + iterador);
+        Simbolo simbolo_aux = Simbolo(simbolo);
+        std::cout << "Simbolo aux: " << simbolo_aux << std::endl;
+        if (!gramatica_fnc.simbolos_no_terminales_.ComprobarSimbolo(
+                simbolo_aux)) {
+          gramatica_fnc.simbolos_no_terminales_.InsertarSimbolo(simbolo_aux);
+        }
+        Cadena cadena_aux;
+        if (i == (produccion.second.getCadena().size() - 2)) {
+          cadena_aux.ConcatenarSimbolo(produccion.second.getCadena()[i - 1] +
+                                       produccion.second.getCadena()[i]);
+          gramatica_fnc.producciones_.insert(
+              std::pair<Simbolo, Cadena>(simbolo_aux, cadena_aux));
+        }
+        cadena_aux.ConcatenarSimbolo(produccion.second.getCadena()[i] +
+                                     simbolo);
+        // gramatica_fnc.producciones_.insert(
+        //     std::pair<Simbolo, Cadena>(simbolo_aux, cadena_aux));
+      }
+      // produccion.second.getCadena().clear();
+      iterador++;
+    }
+  }
+  return gramatica_fnc;
+}
+
+/**
  * @brief Sobrecarga del operador de inserción de flujo para imprimir un objeto
  * Gramatica en un flujo de salida.
  * @param out Flujo de salida en el que se imprimirá el objeto Gramatica.
@@ -149,7 +244,7 @@ std::ostream& operator<<(std::ostream& out, const Gramatica& gramatica) {
   for (auto it = gramatica.producciones_.begin();
        it != gramatica.producciones_.end(); ++it) {
     out << it->first << " -> ";
-    for (auto& simbolo : it->second) {
+    for (auto& simbolo : it->second.getCadena()) {
       out << simbolo;
     }
     out << std::endl;

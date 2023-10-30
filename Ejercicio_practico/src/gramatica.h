@@ -31,12 +31,15 @@ class Gramatica {
  public:
   Gramatica();
   Gramatica(std::string nombre_archivo_de_entrada);
+  bool ExistenProduccionesVacias();
+  bool ExistenProduccionesUnitarias();
+  Gramatica FormalNormalDeChomsky();
   friend std::ostream& operator<<(std::ostream& out, const Gramatica& gramatica);
  private:
   Alfabeto simbolos_terminales_;
   Alfabeto simbolos_no_terminales_;
   Simbolo simbolo_de_arranque_;
-  std::multimap<Simbolo, std::vector<Simbolo>> producciones_;
+  std::multimap<Simbolo, Cadena> producciones_;
 };
 
 #endif  // GRAMATICA_H

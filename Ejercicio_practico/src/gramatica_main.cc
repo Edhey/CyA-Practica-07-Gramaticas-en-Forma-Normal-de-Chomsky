@@ -11,7 +11,9 @@
  * @file simulador_automatas_main.cc: programa cliente.
  * @brief Programa que
  * @bug No hay errores conocidos
- * @see https://github.com/Edhey/CyA-Practica-06-Algoritmo-de-construccion-de-subconjuntos * Historial de revisiones:
+ * @see
+ * https://github.com/Edhey/CyA-Practica-06-Algoritmo-de-construccion-de-subconjuntos
+ * * Historial de revisiones:
  */
 
 #include <fstream>
@@ -32,5 +34,8 @@ int main(int argc, char* argv[]) {
   std::string fichero_gramatica{argv[1]};
   Gramatica gramatica(fichero_gramatica);
   std::cout << "Gramatica: " << std::endl << gramatica;
+  Gramatica formal_normal_de_chomsky = gramatica.FormalNormalDeChomsky();
+  std::cout << "Forma normal de Chomsky: " << std::endl
+            << formal_normal_de_chomsky;
   return 0;
 }

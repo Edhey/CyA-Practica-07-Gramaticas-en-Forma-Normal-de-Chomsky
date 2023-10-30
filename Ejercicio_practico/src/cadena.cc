@@ -11,7 +11,8 @@
  * @file cadena.cc
  * @brief Definición de los métodos de la clase Cadena
  * @bug No hay errores conocidos
- * @see https://github.com/Edhey/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky
+ * @see
+ * https://github.com/Edhey/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky
  * Historial de revisiones:
  */
 
@@ -34,16 +35,28 @@ Cadena::Cadena(std::string cadena) {
       cadena_.push_back(cadena[i]);
     }
   }
-  if (cadena_.empty()){
+  if (cadena_.empty()) {
     cadena_.push_back(Simbolo("&"));
   }
 }
 
 /**
  * @brief Getter para el objeto cadena_.
- * @return Devuelve cadena_.
+ * @return Devuelve una referencia a cadena_.
  */
-std::vector<Simbolo> Cadena::getCadena() { return cadena_; }
+std::vector<Simbolo>& Cadena::getCadena() const {
+  std::vector<Simbolo>& cadena_aux = const_cast<std::vector<Simbolo>&>(cadena_);
+  return cadena_aux; 
+}
+
+/**
+ * @brief Sobrecarga del operador == para comparar dos objetos Cadena.
+ * @param cadena_a_comparar Es la cadena con la que se compara.
+ * @return Devuélve true si las cadenas son iguales, false en el caso contrario.
+ */
+bool Cadena::operator==(const Cadena cadena_a_comparar) const {
+  return cadena_ == cadena_a_comparar.cadena_;
+}
 
 /**
  * @brief Método que permite concatenar un simbolo a la cadena.
@@ -53,11 +66,12 @@ void Cadena::ConcatenarSimbolo(const Simbolo& simbolo) {
   const Simbolo ampersand("&");
   if (simbolo == ampersand)
     return;
-  else {
-    for (int i{0}; i < simbolo.getSimbolo().size(); ++i) {
-      if (simbolo.getSimbolo()[i] != '&')
-        cadena_.push_back(simbolo.getSimbolo()[i]);
-    }
+  if (cadena_.size() == 1 && cadena_[0] == ampersand) {
+    cadena_.clear();
+  }
+  for (int i{0}; i < simbolo.getSimbolo().size(); ++i) {
+    if (simbolo.getSimbolo()[i] != '&')
+      cadena_.push_back(simbolo.getSimbolo()[i]);
   }
 }
 
@@ -165,6 +179,14 @@ void Cadena::Sufijos(std::string nombre_archivo_de_salida) {
     }
   }
   archivo_de_salida << "}" << std::endl;
+}
+
+/**
+ * @brief Método de la clase Cadena que limpia la cadena guardada.
+ */
+void Cadena::Clear() {
+  cadena_.clear();
+  cadena_.push_back(Simbolo("&"));
 }
 
 // std::set<Simbolo, ComparacionPorLonguitud> Cadena::Prefijos() {

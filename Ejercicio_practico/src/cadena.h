@@ -48,10 +48,12 @@ public:
   Cadena(Simbolo simbolo) : cadena_(1, simbolo) {}
   Cadena(std::string cadena);
   Cadena(std::vector<Simbolo> vector_cadena) : cadena_(vector_cadena) {}
-  std::vector<Simbolo> getCadena();
+  std::vector<Simbolo>& getCadena() const;
+  bool operator==(const Cadena cadena_a_comparar) const;
   void ConcatenarSimbolo(const Simbolo& simbolo);
   int Longuitud();
   Cadena Inversa();
+  void Clear();
   void Prefijos(std::string nombre_archivo_de_salida);
   // std::set<Simbolo, ComparacionPorLonguitud> Prefijos();
   void Sufijos(std::string nombre_archivo_de_salida);
