@@ -1,12 +1,12 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/gramatica_main.dir/src/alfabeto.cc.o"
+  "CMakeFiles/gramatica_main.dir/src/tools.cc.o"
+  "CMakeFiles/gramatica_main.dir/src/simbolo.cc.o"
   "CMakeFiles/gramatica_main.dir/src/cadena.cc.o"
+  "CMakeFiles/gramatica_main.dir/src/alfabeto.cc.o"
   "CMakeFiles/gramatica_main.dir/src/gramatica.cc.o"
   "CMakeFiles/gramatica_main.dir/src/gramatica_main.cc.o"
-  "CMakeFiles/gramatica_main.dir/src/simbolo.cc.o"
-  "CMakeFiles/gramatica_main.dir/src/tools.cc.o"
-  "gramatica_main"
   "gramatica_main.pdb"
+  "gramatica_main"
 )
 
 # Per-language clean rules from dependency scanning.

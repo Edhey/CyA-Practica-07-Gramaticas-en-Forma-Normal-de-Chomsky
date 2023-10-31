@@ -172,6 +172,11 @@ bool Gramatica::ExistenProduccionesUnitarias() {
   return false;
 }
 
+/**
+ * @brief Método de la clase Gramatica que devuelve la gramatica en Forma
+ * Normal de Chomsky. 
+ * @return Devuelve la gramatica en Forma Normal de Chomsky. 
+ */
 Gramatica Gramatica::FormalNormalDeChomsky() {
   if (this->ExistenProduccionesVacias()) {
     std::cerr << "Error. ¡No se pudo realizar la conversión a FNC!\nLa "

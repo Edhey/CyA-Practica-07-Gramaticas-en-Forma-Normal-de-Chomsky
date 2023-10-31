@@ -1,4 +1,4 @@
-# Install script for directory: /home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico
+# Install script for directory: /home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

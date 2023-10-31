@@ -6,7 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/alfabeto.h
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/alfabeto.cc
+alfabeto.h
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/alfabeto.h
+
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/alfabeto.h
 fstream
 -
 iostream
@@ -16,11 +20,15 @@ map
 set
 -
 cadena.h
-/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/cadena.h
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/cadena.h
 simbolo.h
-/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/simbolo.h
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/simbolo.h
 
-/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/cadena.h
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/cadena.cc
+cadena.h
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/cadena.h
+
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/cadena.h
 algorithm
 -
 fstream
@@ -30,17 +38,17 @@ iostream
 vector
 -
 alfabeto.h
-/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/alfabeto.h
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/alfabeto.h
 simbolo.h
-/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/simbolo.h
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/simbolo.h
 
-/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/gramatica.cc
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/gramatica.cc
 gramatica.h
-/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/gramatica.h
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/gramatica.h
 
-/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/gramatica.h
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/gramatica.h
 alfabeto.h
-/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/alfabeto.h
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/alfabeto.h
 map
 -
 vector
@@ -48,7 +56,33 @@ vector
 sstream
 -
 
-/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/simbolo.h
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/gramatica_main.cc
+fstream
+-
+iostream
+-
+sstream
+-
+gramatica.h
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/gramatica.h
+tools.h
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/tools.h
+
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/simbolo.cc
+simbolo.h
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/simbolo.h
+
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/simbolo.h
+iostream
+-
+
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/tools.cc
+tools.h
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/tools.h
+
+/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/tools.h
+cstring
+-
 iostream
 -
 

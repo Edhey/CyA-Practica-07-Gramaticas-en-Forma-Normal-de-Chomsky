@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/alfabeto.cc" "/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/CMakeFiles/gramatica_main.dir/src/alfabeto.cc.o"
-  "/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/cadena.cc" "/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/CMakeFiles/gramatica_main.dir/src/cadena.cc.o"
-  "/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/gramatica.cc" "/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/CMakeFiles/gramatica_main.dir/src/gramatica.cc.o"
-  "/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/gramatica_main.cc" "/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/CMakeFiles/gramatica_main.dir/src/gramatica_main.cc.o"
-  "/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/simbolo.cc" "/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/CMakeFiles/gramatica_main.dir/src/simbolo.cc.o"
-  "/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/tools.cc" "/home/usuario/CyA_practicas/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/CMakeFiles/gramatica_main.dir/src/tools.cc.o"
+  "/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/alfabeto.cc" "/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/CMakeFiles/gramatica_main.dir/src/alfabeto.cc.o"
+  "/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/cadena.cc" "/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/CMakeFiles/gramatica_main.dir/src/cadena.cc.o"
+  "/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/gramatica.cc" "/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/CMakeFiles/gramatica_main.dir/src/gramatica.cc.o"
+  "/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/gramatica_main.cc" "/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/CMakeFiles/gramatica_main.dir/src/gramatica_main.cc.o"
+  "/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/simbolo.cc" "/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/CMakeFiles/gramatica_main.dir/src/simbolo.cc.o"
+  "/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/src/tools.cc" "/home/siga01.stic.ull.es/59/alu0101552392/CyA-Practica-07-Gramaticas-en-Forma-Normal-de-Chomsky/Ejercicio_practico/build/CMakeFiles/gramatica_main.dir/src/tools.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
