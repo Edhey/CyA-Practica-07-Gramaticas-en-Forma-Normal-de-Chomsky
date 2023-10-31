@@ -18,6 +18,10 @@
 
 #include "gramatica.h"
 
+/**
+ * @brief Constructor de la clase Gramatica a partir de un fichero.
+ * @param nombre_fichero_gra 
+ */
 Gramatica::Gramatica(std::string nombre_fichero_gra) {
   std::ifstream fichero_gra{nombre_fichero_gra};
   if (!fichero_gra) {

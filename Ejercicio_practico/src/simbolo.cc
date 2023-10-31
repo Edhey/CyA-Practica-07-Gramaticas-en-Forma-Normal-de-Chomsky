@@ -17,6 +17,9 @@
 
 #include "simbolo.h"
 
+/**
+ * @brief Constructor por defecto de la clase Simbolo.
+ */
 Simbolo::Simbolo() { simbolo_ = '&'; }
 
 /**
